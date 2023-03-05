@@ -27,6 +27,7 @@ public class TodoMetricInterceptor implements HandlerInterceptor {
             logger.info(" >>> METHOD: {}", METHOD);
             pathKey = "api_".concat(METHOD.toLowerCase()).concat(URI.toLowerCase().replace("/","_"));
             this.registry.counter(pathKey).increment();
+            logger.info(" >>>> the number of calls {} ", this.registry.counter(pathKey).count());
         }
     }
 }
